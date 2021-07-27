@@ -9,11 +9,15 @@ class Character {
     enemy.health = enemy.health - 100
     if (enemy.health <= 0) {
       enemy.alive = false
+      console.log('Enemy is dead!')
     }
-    return enemy.alive
   }
   heal(enemy) {
-    enemy.health = enemy.health + 50
+    if (enemy.health <= 0) {
+      console.log('Character cannot be healed!');
+    } else {
+      enemy.health = enemy.health + 50
+    }
     return enemy.health
   }
 }

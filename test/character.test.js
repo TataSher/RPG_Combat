@@ -39,6 +39,12 @@ test('character can heal a character giving back 50 health points', () => {
    expect(character2.health).toBe(950);
 });
 
+test('character cannot heal dead characters', () => {
+  times (10) (() => character1.attack(character2));
+  character1.heal(character2);
+  expect(character2.health).toBe(0);
+})
+
 const times = x => f => {
   if (x > 0) {
     f()
