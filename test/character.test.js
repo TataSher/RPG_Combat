@@ -8,7 +8,6 @@ beforeEach(() => {
 
 
 test('health to have 1000', () => {
-  
   expect(character1.health).toBe(1000);
 });
 
@@ -21,8 +20,8 @@ test('set character status to Alive by default', () => {
 });
 
 test('when character attacks another character health gets subtracted', () =>{
-  
   character1.attack(character2);
+
   expect(character2.health).toBe(900);
 });
 
@@ -41,8 +40,16 @@ test('character can heal a character giving back 50 health points', () => {
 
 test('character cannot heal dead characters', () => {
   times (10) (() => character1.attack(character2));
-  character1.heal(character2);
+
+  expect(() => 
+  character1.heal(character2)).toThrow("Character cannot be healed!");
   expect(character2.health).toBe(0);
+});
+
+test('characters health cannot exceed 1000', () => {
+
+  expect(() => 
+    character1.heal(character2)).toThrow("Character cannot be healed!");
 })
 
 const times = x => f => {

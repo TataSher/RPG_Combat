@@ -13,11 +13,12 @@ class Character {
     }
   }
   heal(enemy) {
-    if (enemy.health <= 0) {
-      console.log('Character cannot be healed!');
+    if (enemy.health <= 0 || enemy.health >= 1000) {
+      throw 'Character cannot be healed!';
     } else {
       enemy.health = enemy.health + 50
     }
+    
     return enemy.health
   }
 }
