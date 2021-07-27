@@ -5,3 +5,8 @@ test('health to have 1000', () => {
   character = new Character()
   expect(character.health).toBe(1000);
 });
+
+test('set level to 1 by default', () => {
+  character = new Character()
+  expect(character.level).toBe(1);
+})
