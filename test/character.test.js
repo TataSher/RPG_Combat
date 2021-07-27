@@ -15,3 +15,10 @@ test('set character status to Alive by default', () => {
   character = new Character();
   expect(character.alive).toBe(true);
 });
+
+test('when character attacks another character health gets subtracted', () =>{
+  character1 = new Character();
+  character2 = new Character();
+  character1.attack(character2);
+  expect(character2.health).toBe(900);
+})
