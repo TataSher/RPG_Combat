@@ -6,6 +6,9 @@ class Character {
   }
 
   attack(enemy) {
+    if (enemy === this) {
+      throw "No Self Harm for You Today!"
+    }
     enemy.health = enemy.health - 100
     if (enemy.health <= 0) {
       enemy.alive = false

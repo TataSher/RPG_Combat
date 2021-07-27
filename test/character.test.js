@@ -50,7 +50,13 @@ test('characters health cannot exceed 1000', () => {
 
   expect(() => 
     character1.heal(character2)).toThrow("Character cannot be healed!");
-})
+});
+
+test('character cannot deal damage to itself', () => {
+  expect(() => 
+    character1.attack(character1)).toThrow("No Self Harm for You Today!");
+});
+
 
 const times = x => f => {
   if (x > 0) {
