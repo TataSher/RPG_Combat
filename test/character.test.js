@@ -3,7 +3,7 @@ const Character = require('../main/character');
 
 test('health to have 1000', () => {
   character = new Character();
-  expect(character.health).toBe(1000);
+  expect(character.health).toBe(200);
 });
 
 test('set level to 1 by default', () => {
@@ -20,5 +20,13 @@ test('when character attacks another character health gets subtracted', () =>{
   character1 = new Character();
   character2 = new Character();
   character1.attack(character2);
-  expect(character2.health).toBe(900);
-})
+  expect(character2.health).toBe(100);
+});
+
+test('when character damage exceeds character health, character dies', () => {
+  character1 = new Character();
+  character2 = new Character();
+  character1.attack(character2);
+  character1.attack(character2);
+  expect(character2.alive).toBe(false);
+});
