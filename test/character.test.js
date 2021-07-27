@@ -65,6 +65,19 @@ test('character can only heal itself', () => {
   character1.heal(character2)).toThrow("Character cannot be healed!");
 });
 
+test('character gains a level when it kills another character', () => {
+  times (10) (() => character1.attack(character2));
+
+  expect(character1.level).toBe(2);
+});
+
+test('characters 5 levels above taken 50% less dmg', () => {
+  character1.level = 10;
+  character2.attack(character1);
+
+  expect(character1.health).toBe(950);
+});
+
 const times = x => f => {
   if (x > 0) {
     f()
