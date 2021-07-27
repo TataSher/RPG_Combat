@@ -31,25 +31,19 @@ test('when character damage exceeds character health, character dies', () => {
   expect(character2.alive).toBe(false);
 });
 
-test('character can heal a character giving back 50 health points', () => {
-   character1.attack(character2);
-   character1.heal(character2);
-   
-   expect(character2.health).toBe(950);
-});
 
 test('character cannot heal dead characters', () => {
   times (10) (() => character1.attack(character2));
 
   expect(() => 
-  character1.heal(character2)).toThrow("Character cannot be healed!");
+  character2.heal()).toThrow("Character cannot be healed!");
   expect(character2.health).toBe(0);
 });
 
 test('characters health cannot exceed 1000', () => {
 
   expect(() => 
-    character1.heal(character2)).toThrow("Character cannot be healed!");
+    character1.heal()).toThrow("Character cannot be healed!");
 });
 
 test('character cannot deal damage to itself', () => {
@@ -57,6 +51,19 @@ test('character cannot deal damage to itself', () => {
     character1.attack(character1)).toThrow("No Self Harm for You Today!");
 });
 
+test('character cannot heal another character', () => {
+  character2.attack(character1);
+  character1.heal();
+
+  expect(character1.health).toBe(950);
+})
+
+test('character can only heal itself', () => {
+  character1.attack(character2);
+  
+  expect(() => 
+  character1.heal(character2)).toThrow("Character cannot be healed!");
+});
 
 const times = x => f => {
   if (x > 0) {

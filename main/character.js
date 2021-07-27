@@ -15,14 +15,14 @@ class Character {
       console.log('Enemy is dead!')
     }
   }
-  heal(enemy) {
-    if (enemy.health <= 0 || enemy.health >= 1000) {
+  heal() {
+    if (this.health <= 0 || this.health >= 1000) {
       throw 'Character cannot be healed!';
     } else {
-      enemy.health = enemy.health + 50
+      this.health = this.health + 50
     }
     
-    return enemy.health
+    return this.health
   }
 }
 
