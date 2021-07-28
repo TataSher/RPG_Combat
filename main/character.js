@@ -4,7 +4,7 @@ class Character {
     this.level = 1;
     this.alive = true;
     this.maxRange = 0;
-    
+    this.class 
   }
 
   selfAttack(enemy) {
@@ -45,7 +45,17 @@ class Character {
     return this.health
   }
 
-
+  pickClass(playerClass) {
+    if (playerClass === 'Melee') {
+      this.class = 'Melee';
+      this.maxRange = 2;
+    } else if (playerClass === 'Ranged') {
+       this.class = 'Ranged';
+       this.maxRange = 20
+    } else {
+      throw "That's not a valid class"
+    }
+  }
 }
 
 

@@ -89,6 +89,20 @@ test('character have a max range', () => {
   
 
   expect(character1.maxRange).toBe(0);
+});
+
+test('character can pick Melee or Ranged class that have different ranges', () => {
+  character1.pickClass('Melee');
+  character2.pickClass('Ranged');
+
+  expect(character1.maxRange).toBe(2);
+  expect(character1.class).toBe('Melee');
+  expect(character2.maxRange).toBe(20);
+  expect(character2.class).toBe('Ranged')
+});
+
+test('throws an error if class chosen is not valid', () => {
+  expect(() => character1.pickClass('BlabloBle')).toThrow("That's not a valid class");
 })
 
 const times = x => f => {
