@@ -85,6 +85,12 @@ test('characters 5 levels below take 50% more dmg', () => {
   expect(character2.health).toBe(850);
 });
 
+test('character have a max range', () => {
+  
+
+  expect(character1.maxRange).toBe(0);
+})
+
 const times = x => f => {
   if (x > 0) {
     f()
