@@ -98,12 +98,38 @@ test('character can pick Melee or Ranged class that have different ranges', () =
   expect(character1.maxRange).toBe(2);
   expect(character1.class).toBe('Melee');
   expect(character2.maxRange).toBe(20);
-  expect(character2.class).toBe('Ranged')
+  expect(character2.class).toBe('Ranged');
 });
 
 test('throws an error if class chosen is not valid', () => {
   expect(() => character1.pickClass('BlabloBle')).toThrow("That's not a valid class");
-})
+});
+
+test('characters have a starting position', () => {
+
+  expect(character1.position).toBe(0);
+});
+
+test('checks if character is in range for attack', () => {
+  character1.position = 3;
+  character2.position = 20;
+  character1.pickClass('Melee');
+
+  // character1.enemyInRange(character2) = false;
+
+  expect(()=> character1.attack(character2)).toThrow('You missed!');
+  expect(character2.health).toBe(1000);
+});
+
+test('attacks charater when in range', () => {
+  character1.position = 3;
+  character2.position = 2;
+  character1.pickClass('Ranged');
+  character1.attack(character2);
+
+  expect(character2.health).toBe(900);
+});
+
 
 const times = x => f => {
   if (x > 0) {

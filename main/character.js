@@ -4,7 +4,8 @@ class Character {
     this.level = 1;
     this.alive = true;
     this.maxRange = 0;
-    this.class 
+    this.class;
+    this.position = 0;
   }
 
   selfAttack(enemy) {
@@ -29,7 +30,17 @@ class Character {
     }
   };
 
+  enemyInRange(enemy) {
+    if (enemy.position <= this.position + this.maxRange && enemy.position >= this.position - this.maxRange) {
+      return true
+    } else {
+      throw 'You missed!'
+    }
+  };
+
+
   attack(enemy) {
+    this.enemyInRange(enemy);
     this.selfAttack(enemy);
     this.levelAttackCheck(enemy);
     this.isDead(enemy);
