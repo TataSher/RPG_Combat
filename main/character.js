@@ -11,6 +11,8 @@ class Character {
     }
     if (enemy.level >= this.level + 5) {
       enemy.health = enemy.health - 50
+    } else if (enemy.level <= this.level - 5) {
+      enemy.health = enemy.health - 150
     } else {
     enemy.health = enemy.health - 100
     }

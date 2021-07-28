@@ -78,6 +78,13 @@ test('characters 5 levels above taken 50% less dmg', () => {
   expect(character1.health).toBe(950);
 });
 
+test('characters 5 levels below take 50% more dmg', () => {
+  character1.level = 10
+  character1.attack(character2);
+
+  expect(character2.health).toBe(850);
+});
+
 const times = x => f => {
   if (x > 0) {
     f()
