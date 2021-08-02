@@ -130,6 +130,14 @@ test('attacks charater when in range', () => {
   expect(character2.health).toBe(900);
 });
 
+test('new characters do not have a faction', () => {
+  expect(character1.faction).toBeUndefined()
+})
+
+test('character can join a faction', () => {
+  character1.joinFaction('Tree People');
+  expect(character1.faction).toBe('Tree People');
+});
 
 const times = x => f => {
   if (x > 0) {

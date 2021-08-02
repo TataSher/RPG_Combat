@@ -5,6 +5,7 @@ class Character {
     this.alive = true;
     this.maxRange = 0;
     this.class;
+    this.faction;
     this.position = 0;
   }
 
@@ -67,6 +68,10 @@ class Character {
       throw "That's not a valid class"
     }
   }
+
+  joinFaction(faction) {
+    this.faction = faction
+  };
 }
 
 
