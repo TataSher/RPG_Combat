@@ -146,6 +146,16 @@ test('characters can leave a faction', () => {
   expect(character1.faction).toEqual([]);
 });
 
+test('characters can leave a specific faction', () => {
+  character1.joinFaction('Tree People');
+  character1.joinFaction('Desert Rangers')
+  character1.leaveFaction('Tree People');
+
+  expect(character1.faction).toStrictEqual(['Desert Rangers']);
+});
+
+
+
 const times = x => f => {
   if (x > 0) {
     f()

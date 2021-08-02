@@ -74,7 +74,11 @@ class Character {
   };
 
   leaveFaction(faction) {
-    this.faction.pop(faction);
+    for(let i = 0;i < this.faction.length; i++) {
+      if (this.faction[i] === faction) {
+        this.faction.splice(i, 1);
+      }
+    };
   }
 }
 
