@@ -131,12 +131,19 @@ test('attacks charater when in range', () => {
 });
 
 test('new characters do not have a faction', () => {
-  expect(character1.faction).toBeUndefined()
-})
+  expect(character1.faction).toEqual([]);
+});
 
 test('character can join a faction', () => {
   character1.joinFaction('Tree People');
-  expect(character1.faction).toBe('Tree People');
+  expect(character1.faction).toStrictEqual(['Tree People']);
+});
+
+test('characters can leave a faction', () => {
+  character1.joinFaction('Tree People');
+  character1.leaveFaction('Tree People');
+
+  expect(character1.faction).toEqual([]);
 });
 
 const times = x => f => {

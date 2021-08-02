@@ -5,7 +5,7 @@ class Character {
     this.alive = true;
     this.maxRange = 0;
     this.class;
-    this.faction;
+    this.faction = [];
     this.position = 0;
   }
 
@@ -70,8 +70,12 @@ class Character {
   }
 
   joinFaction(faction) {
-    this.faction = faction
+    this.faction.push(faction)
   };
+
+  leaveFaction(faction) {
+    this.faction.pop(faction);
+  }
 }
 
 
