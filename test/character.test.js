@@ -154,6 +154,14 @@ test('characters can leave a specific faction', () => {
   expect(character1.faction).toStrictEqual(['Desert Rangers']);
 });
 
+test('characters belonging to the same faction are alies', () => {
+  character1.joinFaction('Tree People');
+  character2.joinFaction('Tree People');
+
+  expect(character1.areAllies(character2)).toBe(true)
+});
+
+
 
 
 const times = x => f => {

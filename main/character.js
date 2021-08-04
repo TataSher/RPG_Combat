@@ -80,6 +80,16 @@ class Character {
       }
     };
   }
+
+  areAllies(character) {
+    // return (this.faction.includes(character.faction)) ? true : false
+    let allies = 0;
+    this.faction.map(faction => {if (character.faction.includes(faction)) {
+      allies = true
+      }
+    })
+    return allies
+  }
 }
 
 
