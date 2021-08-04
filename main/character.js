@@ -41,6 +41,9 @@ class Character {
 
 
   attack(enemy) {
+    if(this.areAllies(enemy)) {
+      throw 'You cannot attack an ally!'
+    };
     this.enemyInRange(enemy);
     this.selfAttack(enemy);
     this.levelAttackCheck(enemy);

@@ -161,6 +161,14 @@ test('characters belonging to the same faction are alies', () => {
   expect(character1.areAllies(character2)).toBe(true)
 });
 
+test('allies cannot deal damage to one another', () => {
+  character1.joinFaction('Tree People');
+  character2.joinFaction('Tree People');
+  
+  expect(()=> character1.attack(character2)).toThrow('You cannot attack an ally!');
+  expect(character2.health).toBe(1000);
+});
+
 
 
 
