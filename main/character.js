@@ -50,7 +50,7 @@ class Character {
     this.isDead(enemy);
   };
 
-  heal() {
+  selfHeal() {
     if (this.health <= 0 || this.health >= 1000) {
       throw 'Character cannot be healed!';
     } else {
@@ -58,6 +58,18 @@ class Character {
     }
     
     return this.health
+  }
+
+  heal(character) {
+    if (this.areAllies(character)) {
+      character.health = character.health + 50
+    } else {
+      throw 'Character cannot be healed!'
+    };
+  }
+
+  checkHealth() {
+    return this.health;
   }
 
   pickClass(playerClass) {

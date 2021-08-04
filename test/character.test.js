@@ -36,14 +36,14 @@ test('character cannot heal dead characters', () => {
   times (10) (() => character1.attack(character2));
 
   expect(() => 
-  character2.heal()).toThrow("Character cannot be healed!");
+  character2.selfHeal()).toThrow("Character cannot be healed!");
   expect(character2.health).toBe(0);
 });
 
 test('characters health cannot exceed 1000', () => {
 
   expect(() => 
-    character1.heal()).toThrow("Character cannot be healed!");
+    character1.selfHeal()).toThrow("Character cannot be healed!");
 });
 
 test('character cannot deal damage to itself', () => {
@@ -53,7 +53,7 @@ test('character cannot deal damage to itself', () => {
 
 test('character cannot heal another character', () => {
   character2.attack(character1);
-  character1.heal();
+  character1.selfHeal();
 
   expect(character1.health).toBe(950);
 })
@@ -169,7 +169,14 @@ test('allies cannot deal damage to one another', () => {
   expect(character2.health).toBe(1000);
 });
 
+test('allies can heal other allies', () => {
+  character1.attack(character2);
+  character1.joinFaction('Tree People');
+  character2.joinFaction('Tree People');
+  character1.heal(character2);
 
+  expect(character2.checkHealth()).toBe(950);
+});
 
 
 const times = x => f => {
