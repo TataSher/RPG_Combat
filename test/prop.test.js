@@ -11,7 +11,7 @@ beforeEach(() => {
 
 
 test('props can be attacked by a character', () => {
-  Character.attack = jest.mock()
+  Character.attack = jest.fn()
   const loglog = Character.attack
   console.log(loglog)
   // const attackProp = jest.spyOn(character, "attack")
