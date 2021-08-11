@@ -12,10 +12,10 @@ beforeEach(() => {
 
 test('props can be attacked by a character', () => {
   Character.attack = jest.fn()
-  const loglog = Character.attack
-  console.log(loglog)
+  // const loglog = Character.attack
+  // console.log(loglog)
   // const attackProp = jest.spyOn(character, "attack")
   character1.attack(prop1);
-  console.log(character1.attack)
+  // console.log(character1.attack)
   expect(prop1.health).toBe(400);
 });
