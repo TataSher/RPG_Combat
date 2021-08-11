@@ -8,7 +8,7 @@ jest.mock('../main/prop');
 beforeEach(() => {
   Prop.mockClear();
   prop1 = new Prop
-  prop1.health = 500;
+  prop1.health = 100;
   prop1.position = 0;
 
   character1 = new Character();
@@ -187,18 +187,11 @@ test('allies can heal other allies', () => {
   expect(character2.checkHealth()).toBe(950);
 });
 
-// it('We can check if the consumer called the class constructor', () => {
-//   const character3 = new Character;
-//   expect(Prop).toHaveBeenCalledTimes(1);
-// });
-
 test('character can attack a prop', () => {
 
-
-  character1.pickClass("Ranged");
   character1.attack(prop1)
 
-  expect(prop1.health).toBe(400)
+  expect(prop1.health).toBe(80)
 });
 
 const times = x => f => {

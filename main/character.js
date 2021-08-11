@@ -1,3 +1,5 @@
+const Prop = require('../main/prop');
+
 class Character {
   constructor() {
     this.health = 1000;
@@ -31,6 +33,10 @@ class Character {
     }
   };
 
+  propAttack(enemy) {
+      enemy.health = enemy.health - 20
+  }
+
   enemyInRange(enemy) {
     if (enemy.position <= this.position + this.maxRange && enemy.position >= this.position - this.maxRange) {
       return true
@@ -46,7 +52,7 @@ class Character {
     };
     this.enemyInRange(enemy);
     this.selfAttack(enemy);
-    this.levelAttackCheck(enemy);
+    enemy instanceof Prop ? this.propAttack(enemy) : this.levelAttackCheck(enemy);
     this.isDead(enemy);
   };
 
