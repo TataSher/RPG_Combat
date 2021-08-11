@@ -178,13 +178,15 @@ test('allies can heal other allies', () => {
   expect(character2.checkHealth()).toBe(950);
 });
 
-test('props can be attacked by a character', () => {
-  Character.attack = jest.fn()
-  const loglog = Character.attack
-  character1.attack(prop1);
+test('character can attack a prop', () => {
+  prop1 = new Prop
+  prop1 = jest.mock()
 
-  expect(prop1.health).toBe(400);
+  character1.attack(prop1)
+
+  expect(prop1.health).toBe(400)
 });
+
 const times = x => f => {
   if (x > 0) {
     f()
