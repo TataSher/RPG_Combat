@@ -1,5 +1,6 @@
 const { TestWatcher } = require('jest');
 const Character = require('../main/character');
+const Prop = require('../main/prop');
 
 beforeEach(() => {
   character1 = new Character();
