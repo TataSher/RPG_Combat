@@ -198,6 +198,13 @@ test('characters cannot heal props', () => {
   expect(()=> character1.heal(prop1)).toThrow('This cannot be healed!');
 });
 
+test('characters can check a faction of other characters and props', () => {
+  character1.joinFaction('Tree People');
+  
+  expect(character1.checkFaction(character1)).toBe('Tree People')
+  expect(character1.checkFaction(prop1)).toBe('Neutral');
+});
+
 const times = x => f => {
   if (x > 0) {
     f()

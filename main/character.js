@@ -102,6 +102,13 @@ class Character {
     };
   }
 
+  checkFaction(character) {
+    if (character instanceof Prop) {
+      return 'Neutral'
+    } else {
+      return character.faction.toString()}
+  }
+
   areAllies(character) {
     // return (this.faction.includes(character.faction)) ? true : false
     let allies = 0;
