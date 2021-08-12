@@ -26,6 +26,11 @@ test('When reduced to 0 Health, prop is destroyed', () => {
 
 });
 
+test('can set prop health to be a custom number', () => {
+  prop1.setHealth(2000);
+  expect(prop1.checkHealth()).toBe(2000)
+});
+
 const times = x => f => {
   if (x > 0) {
     f()

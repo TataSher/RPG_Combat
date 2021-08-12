@@ -17,6 +17,10 @@ class Prop {
     }
     return this.destroyed
   }
+
+  setHealth(number) {
+    this.health = number
+  }
 };
 
 module.exports = Prop;
