@@ -70,7 +70,7 @@ class Character {
     if (this.areAllies(character)) {
       character.health = character.health + 50
     } else {
-      throw 'Character cannot be healed!'
+      throw 'This cannot be healed!'
     };
   }
 

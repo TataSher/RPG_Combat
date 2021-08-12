@@ -71,7 +71,7 @@ test('character can only heal itself', () => {
   character1.attack(character2);
   
   expect(() => 
-  character1.heal(character2)).toThrow("Character cannot be healed!");
+  character1.heal(character2)).toThrow("This cannot be healed!");
 });
 
 test('character gains a level when it kills another character', () => {
@@ -188,10 +188,14 @@ test('allies can heal other allies', () => {
 });
 
 test('character can attack a prop', () => {
-
   character1.attack(prop1)
 
   expect(prop1.health).toBe(80)
+});
+
+test('characters cannot heal props', () => {
+  
+  expect(()=> character1.heal(prop1)).toThrow('This cannot be healed!');
 });
 
 const times = x => f => {
